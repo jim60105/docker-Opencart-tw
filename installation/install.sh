@@ -45,8 +45,12 @@ curl -sSL -X POST \
   -F "db_password=${MYSQL_PASSWORD}" \
   -F "db_database=${MYSQL_DATABASE}" \
   -F "db_port=3306" \
-  -F "db_prefix=oc_" \
+  -F "db_prefix=${OPENCART_PREFIX}" \
   -F "username=${OPENCART_USER}" \
   -F "password=${OPENCART_PASSWORD}" \
   -F "email=${OPENCART_EMAIL}" \
   'http://web/upload/install/index.php?route=install/step_3'
+
+OPENCART_PREFIX="${OPENCART_PREFIX}" \
+  sed -e "s/\${OPENCART_PREFIX}/${OPENCART_PREFIX}/g" /etc/tw.sql | \
+  mysql -h mysql -u "${MYSQL_USER}" -p"${MYSQL_PASSWORD}" "${MYSQL_DATABASE}"

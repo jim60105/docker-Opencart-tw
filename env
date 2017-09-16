@@ -8,5 +8,6 @@ MYSQL_USER=opencart
 MYSQL_PASSWORD=opencart
 OPENCART_USER=admin
 OPENCART_PASSWORD=admin
+OPENCART_PREFIX=oc_
 OPENCART_EMAIL=admin@localhost.com
 SERVER_HOSTNAME=localhost
