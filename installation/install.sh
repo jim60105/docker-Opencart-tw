@@ -50,3 +50,20 @@ curl -sSL -X POST \
   -F "password=${OPENCART_PASSWORD}" \
   -F "email=${OPENCART_EMAIL}" \
   'http://web/upload/install/index.php?route=install/step_3'
+
+cd "$INSTALL_ROOT"
+wget -N "https://github.com/vqmod/vqmod/releases/download/v2.6.3-opencart/vqmod-2.6.3-opencart.zip"
+chmod 666 "vqmod-2.6.3-opencart.zip"
+cd "$DOCUMENT_ROOT/public/upload"
+unzip -u "$INSTALL_ROOT/vqmod-2.6.3-opencart.zip"
+chown -R "$PHP_UID" /var/www/html/public/upload/vqmod
+curl -sSL "http://web/upload/vqmod/install"
+
+if [ -e "$INSTALL_ROOT/QuickProductEdit-v1.3.zip" ]; then
+  echo "Installing QuickProductEdit."
+  mkdir /tmp/QuickProductEdit
+  cd /tmp/QuickProductEdit
+  unzip -u "$INSTALL_ROOT/QuickProductEdit-v1.3.zip"
+  cp -r "1.5.1 - 2.x/upload" "$DOCUMENT_ROOT/public/"
+  cp -r "compatibilty_fix_230/vqmod" "$DOCUMENT_ROOT/public/upload"
+fi
