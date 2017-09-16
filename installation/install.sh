@@ -1,4 +1,18 @@
 #!/bin/sh
+waitforservice() {
+  host="$1"
+  port="$2"
+  status=1
+
+  echo -n "Waiting for service ${host}:${port}"
+  while [ "$status" -ne "0" ]; do
+    echo -n '.'
+    echo | telnet "$host" "$port"
+    status="$?"
+    sleep 1
+  done
+  echo "done"
+}
 
 OPENCART_URL="http://www.ntcart.com/upload"
 OPENCART_FILE="opencart-tw-2.3.0.2-20170116.zip"
@@ -17,8 +31,12 @@ cp /var/www/html/public/upload/admin/config-dist.php /var/www/html/public/upload
 
 chown -R 82 /var/www/html/public
 
+waitforservice web:80
+waitforservice php:9000
+waitforservice mysql:3306
+
 curl -D - -X POST \
-  -H "Host: localhost" \
+  -H "Host: ${SERVER_HOSTNAME}" \
   -F "db_driver=mpdo" \
   -F "db_hostname=mysql" \
   -F "db_username=${MYSQL_USER}" \
