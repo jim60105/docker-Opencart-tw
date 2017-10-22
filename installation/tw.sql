@@ -426,7 +426,7 @@ DROP TABLE IF EXISTS `${OPENCART_PREFIX}cart`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `${OPENCART_PREFIX}cart` (
-  `${OPENCART_PREFIX}id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `cart_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `api_id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
   `session_id` varchar(32) NOT NULL,
@@ -435,8 +435,8 @@ CREATE TABLE `${OPENCART_PREFIX}cart` (
   `option` text NOT NULL,
   `quantity` int(5) NOT NULL,
   `date_added` datetime NOT NULL,
-  PRIMARY KEY (`${OPENCART_PREFIX}id`),
-  KEY `${OPENCART_PREFIX}id` (`api_id`,`customer_id`,`session_id`,`product_id`,`recurring_id`)
+  PRIMARY KEY (`cart_id`),
+  KEY `cart_id` (`api_id`,`customer_id`,`session_id`,`product_id`,`recurring_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
