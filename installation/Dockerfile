@@ -1,16 +1,14 @@
-FROM alpine:3.4
+FROM alpine
 
 RUN apk add --update \
-  curl \
-  mysql-client \
-  openssl \
   unzip \
-  wget
+  wget \
+  curl \
+  rsync \
+  busybox-extras
 
 COPY ./install.sh /usr/local/bin/install.sh
 RUN chmod +x /usr/local/bin/install.sh
-COPY ./tw.sql /etc/tw.sql
 
 VOLUME /var/www/html
-
-cmd ["/bin/sh", "/usr/local/bin/install.sh"]
+ENTRYPOINT ["/bin/sh", "/usr/local/bin/install.sh"]
