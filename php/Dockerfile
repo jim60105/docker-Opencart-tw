@@ -18,4 +18,5 @@ RUN apt-get update \
   && docker-php-ext-install gd
 
 COPY ./docker-php-entrypoint /usr/local/bin/docker-php-entrypoint
+COPY ./php.ini /usr/local/etc/php/php.ini
 RUN chmod +x /usr/local/bin/docker-php-entrypoint
