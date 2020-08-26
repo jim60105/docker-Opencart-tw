@@ -11,7 +11,7 @@ WWW\
 Reverse Proxy (nginx Server) (SSL證書申請、Renew)\
 ├ Opencart前台 (nginx Server)\
 │  ├ MariaDB資料庫 (網路只對Opencart前後台)\
-│  ├ Jobber (Cron) (定時Backup Docker volume，Backup完送至rsync server) 
+│  ├ Jobber (Cron) (定時Backup Docker volume，Backup完送至rsync server) \
 └ Opencart後台 (nginx Server)\
 
 ## 部屬
@@ -25,6 +25,7 @@ Reverse Proxy (nginx Server) (SSL證書申請、Renew)\
 	* OPENCART_ADMIN_PASSWD=Opencart後台管理員密碼
 1. rsync ssh passwd 明碼放在 `/root/ssh.pas`，chown root，chmod 600
 1. 請參考 `shellScript/upload.sh_sample` 建立 `upload.sh`，Jobber會定時運行`shellScript/backup.sh && shellScript/upload.sh ` 
+1. `chmod 777 -R shellScript/`
 1. 正式發佈前移除 `.env` 中的 `LETSENCRYPT_TEST=true`\
 此設定為SSL測試證書\
 正式版有申請次數上限，務必在測試正常、最後上線前再移除
