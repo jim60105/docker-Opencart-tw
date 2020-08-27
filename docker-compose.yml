@@ -21,11 +21,14 @@ services:
   php:
     build: ./php
     labels: *default-label
+    env_file:
+      - .env
     restart: unless-stopped
     volumes:
       - opencart:/var/www/html
     depends_on:
       - db
+      
     networks:
       - web
       - web-admin
