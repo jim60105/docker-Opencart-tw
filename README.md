@@ -1,9 +1,10 @@
-﻿# Opencart-tw on Docker
+# Opencart-tw on Docker
 這是從屬於 [jim60105/docker-ReverseProxy](https://github.com/jim60105/docker-ReverseProxy) 的 Opencart 方案，必須在上述伺服器運行正常後再做\
+我寫了一篇設定教學[在此](https://blog.maki0419.com/2020/08/docker-opencart.html)
 使用Opencart台灣優化版，來自[OSEC.tw](https://www.osec.tw/opencart.html)\
 在docker up時自動執行Opencart安裝\
 後台網址改為自訂網域，並把前台的/admin屏蔽\
-用ssh rsync做定時備份功能，參考[這裡](https://blog.maki0419.com/2020/07/docker-nextcloud.html#rsync-server%E8%A8%AD%E5%AE%9A "這裡")做設定
+用ssh rsync做定時備份功能，參考[這裡](https://blog.maki0419.com/2020/08/docker-opencart.html#rsync-server%E8%A8%AD%E5%AE%9A%E5%92%8C%E5%82%99%E4%BB%BD%E9%82%84%E5%8E%9F)做設定
 
 ## 架構
 WWW\
