@@ -13,7 +13,7 @@ Reverse Proxy (nginx Server) (SSL證書申請、Renew)\
 ├ Jobber (Cron) (定時備份Docker volume，備份完送至rsync server) \
 ├ Opencart前台 (nginx Server)\
 │  ├ MariaDB資料庫 (網路只對Opencart前後台)\
-└ Opencart後台 (nginx Server)\
+└ Opencart後台 (nginx Server)
 
 ## 部屬
 1. 請參考`.env_sample`建立`.env`
