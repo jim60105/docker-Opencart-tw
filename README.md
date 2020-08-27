@@ -9,9 +9,9 @@
 WWW\
 │\
 Reverse Proxy (nginx Server) (SSL證書申請、Renew)\
+├ Jobber (Cron) (定時備份Docker volume，備份完送至rsync server) \
 ├ Opencart前台 (nginx Server)\
 │  ├ MariaDB資料庫 (網路只對Opencart前後台)\
-│  ├ Jobber (Cron) (定時Backup Docker volume，Backup完送至rsync server) \
 └ Opencart後台 (nginx Server)\
 
 ## 部屬
