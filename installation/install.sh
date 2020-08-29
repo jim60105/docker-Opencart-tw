@@ -46,6 +46,7 @@ then
 fi
 sed -i -r -e "s/(HTTPS?)_SERVER.*/\1_SERVER', 'http:\/\/'.getenv('HOST_ADMIN').'\/'); /g" "$DOCUMENT_ROOT/upload/admin/config.php"
 sed -i -r -e "s/(HTTPS?)_CATALOG.*/\1_CATALOG', 'http:\/\/'.getenv('HOST').'\/'); /g" "$DOCUMENT_ROOT/upload/admin/config.php"
+sed -i -r -e "s/(HTTPS?)_SERVER.*/\1_SERVER', 'http:\/\/'.getenv('HOST').'\/'); /g" "$DOCUMENT_ROOT/upload/config.php"
 rm -rf "$DOCUMENT_ROOT/upload/install"
 echo "Rewrite Admin link to use docker env"
 
